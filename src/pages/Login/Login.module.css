@@ -1,0 +1,128 @@
+/* Login.module.css */
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #72EDF2 10%, #5151E5 100%);
+  }
+  
+  .imageBox {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  .loginBox {
+    flex: 1;
+    background-color: white;
+    padding: 2.5rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    transition: transform 0.3s ease-in-out;
+    margin-left: 2rem;
+  }
+  
+  .loginBox:hover {
+    transform: translateY(-10px);
+  }
+  
+  .title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .formGroup {
+    margin-bottom: 1.5rem;
+  }
+  
+  .label {
+    margin-bottom: 0.5rem;
+    color: #555;
+    font-weight: bold;
+    font-size: 1rem;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .input {
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+    transition: border-color 0.3s ease-in-out;
+  }
+  
+  .input:focus {
+    border-color: #0070f3;
+    outline: none;
+  }
+  
+  .button {
+    padding: 1rem;
+    background-color: #0070f3;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .button:hover {
+    background-color: #005bb5;
+    transform: translateY(-3px);
+  }
+  
+  .button:active {
+    background-color: #004494;
+  }
+  
+  @media (max-width: 900px) {
+    .container {
+      flex-direction: column;
+      padding: 2rem;
+    }
+    
+    .imageBox, .loginBox {
+      flex: none;
+      width: 100%;
+      max-width: 600px;
+      margin: 1rem 0;
+    }
+    
+    .loginBox {
+      margin-left: 0;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .loginBox {
+      padding: 1.5rem;
+    }
+  
+    .title {
+      font-size: 1.5rem;
+    }
+  
+    .input, .button {
+      padding: 0.5rem;
+    }
+  }
+  

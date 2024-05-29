@@ -1,10 +1,20 @@
-// pages/Cadastro/index.tsx
-
 import { useState } from 'react';
+import axios from 'axios';
 import styles from './Cadastro.module.scss';
 
+interface FormData {
+  name: string;
+  email: string;
+  password: string;
+  cep: string;
+  street?: string; // Adicionando campos de endereço
+  neighborhood?: string;
+  city?: string;
+  state?: string;
+}
+
 const Cadastro = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
     password: '',
@@ -18,15 +28,37 @@ const Cadastro = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleCEPBlur = async () => {
+    try {
+      const response = await axios.get(`/api/cep/${formData.cep}`);
+      const { logradouro, bairro, localidade, uf } = response.data;
+      setFormData({
+        ...formData,
+        street: logradouro,
+        neighborhood: bairro,
+        city: localidade,
+        state: uf
+      });
+    } catch (error) {
+      console.error('Erro ao buscar informações do CEP:', error);
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(formData);
-    // Aqui você pode adicionar a lógica para enviar os dados para um servidor
+
+    try {
+      const response = await axios.post('/api/cadastro', formData);
+      console.log('Cadastro realizado com sucesso:', response.data);
+    } catch (error) {
+      console.error('Erro ao cadastrar:', error);
+    }
   };
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>Cadastro</h2>
+      <h2 className={styles.title}>Cadastro de Usuário</h2>
       <form onSubmit={handleSubmit} className={styles.form}>
         <div className={styles.formGroup}>
           <label className={styles.label} htmlFor="name">Nome</label>
@@ -72,6 +104,7 @@ const Cadastro = () => {
             id="cep"
             value={formData.cep}
             onChange={handleChange}
+            onBlur={handleCEPBlur}
             className={styles.input}
             required
           />
@@ -85,5 +118,3 @@ const Cadastro = () => {
 };
 
 export default Cadastro;
-// pages/Cadastro/index.tsx
-

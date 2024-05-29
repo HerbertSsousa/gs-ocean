@@ -1,0 +1,44 @@
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    background-color: #dbe6f6; 
+  }
+  
+  .logo {
+    width: 200px;
+    margin-bottom: 20px;
+  }
+  
+
+  .trabalhosGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    background-color: #dbe6f6; 
+
+  }
+  
+  .trabalho {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .trabalho:hover {
+    transform: translateY(-5px);
+  }
+  
+  .trabalho h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  
+  .trabalho p {
+    margin-bottom: 0;
+  }
+  
