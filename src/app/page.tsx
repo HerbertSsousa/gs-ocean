@@ -1,5 +1,9 @@
 import Image from 'next/image';
 import styles from "../pages/Produtos/Produto.module.css"
+
+
+
+
 export default function Home() {
   return (
     <div className="bg-blue-50">
@@ -14,7 +18,7 @@ export default function Home() {
               <li>
                 
                 <a href="/Produtos" className="hover:text-blue-500">
-                <button>Produtos</button>  
+                Produtos
                 </a>
               </li>
               <li>
