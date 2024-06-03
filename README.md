@@ -18,7 +18,7 @@ CleanOcean Solutions desenvolve tecnologias para reduzir a poluição marinha e 
  Acesso ao Projeto
 </h2>
 <ul>
-  <li>Clone o repositório do projeto: git clone https://github.com/seu_usuario/cleanocean-solutions.git</li>
+  <li>Clone o repositório do projeto: git clone https://github.com/HerbertSsousa/gs-ocean</li>
   <li>Instale as dependências do projeto: npm install</li>
   <li>Inicie o servidor de desenvolvimento: npm run dev</li>
   <li>Acesse o projeto em seu navegador: http://localhost:3000</li>
