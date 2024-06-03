@@ -7,10 +7,11 @@ interface FormData {
   email: string;
   password: string;
   cep: string;
-  street?: string; // Adicionando campos de endereço
+  street?: string;
   neighborhood?: string;
   city?: string;
   state?: string;
+  userId: string; 
 }
 
 const Cadastro = () => {
@@ -18,8 +19,11 @@ const Cadastro = () => {
     name: '',
     email: '',
     password: '',
-    cep: ''
+    cep: '',
+    userId: '', 
   });
+
+  const [error, setError] = useState<string>('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -30,17 +34,34 @@ const Cadastro = () => {
 
   const handleCEPBlur = async () => {
     try {
-      const response = await axios.get(`/api/cep/${formData.cep}`);
+      const response = await axios.get(`/cep/${formData.cep}`);
       const { logradouro, bairro, localidade, uf } = response.data;
       setFormData({
         ...formData,
         street: logradouro,
         neighborhood: bairro,
         city: localidade,
-        state: uf
+        state: uf,
       });
+      setError('');
     } catch (error) {
-      console.error('Erro ao buscar informações do CEP:', error);
+      setError('CEP inválido ou inexistente');
+    }
+  };
+
+  const handleUserIdBlur = async () => {
+    if (!formData.userId) return;
+    try {
+      const response = await axios.get(`/user/${formData.userId}`);
+      const { name, email } = response.data;
+      setFormData({
+        ...formData,
+        name,
+        email,
+      });
+      setError('');
+    } catch (error) {
+      setError('Erro ao buscar informações do usuário');
     }
   };
 
@@ -49,17 +70,32 @@ const Cadastro = () => {
     console.log(formData);
 
     try {
-      const response = await axios.post('/api/cadastro', formData);
+      const response = await axios.post('/cadastro', formData);
       console.log('Cadastro realizado com sucesso:', response.data);
+      setError('');
     } catch (error) {
       console.error('Erro ao cadastrar:', error);
+      setError('Erro ao cadastrar usuário');
     }
   };
 
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>Cadastro de Usuário</h2>
+      {error && <div className={styles.error}>{error}</div>}
       <form onSubmit={handleSubmit} className={styles.form}>
+        <div className={styles.formGroup}>
+          <label className={styles.label} htmlFor="userId">ID do Usuário</label>
+          <input
+            type="text"
+            name="userId"
+            id="userId"
+            value={formData.userId}
+            onChange={handleChange}
+            onBlur={handleUserIdBlur}
+            className={styles.input}
+          />
+        </div>
         <div className={styles.formGroup}>
           <label className={styles.label} htmlFor="name">Nome</label>
           <input
@@ -109,6 +145,58 @@ const Cadastro = () => {
             required
           />
         </div>
+        {formData.street && (
+          <>
+            <div className={styles.formGroup}>
+              <label className={styles.label} htmlFor="street">Rua</label>
+              <input
+                type="text"
+                name="street"
+                id="street"
+                value={formData.street}
+                onChange={handleChange}
+                className={styles.input}
+                readOnly
+              />
+            </div>
+            <div className={styles.formGroup}>
+              <label className={styles.label} htmlFor="neighborhood">Bairro</label>
+              <input
+                type="text"
+                name="neighborhood"
+                id="neighborhood"
+                value={formData.neighborhood}
+                onChange={handleChange}
+                className={styles.input}
+                readOnly
+              />
+            </div>
+            <div className={styles.formGroup}>
+              <label className={styles.label} htmlFor="city">Cidade</label>
+              <input
+                type="text"
+                name="city"
+                id="city"
+                value={formData.city}
+                onChange={handleChange}
+                className={styles.input}
+                readOnly
+              />
+            </div>
+            <div className={styles.formGroup}>
+              <label className={styles.label} htmlFor="state">Estado</label>
+              <input
+                type="text"
+                name="state"
+                id="state"
+                value={formData.state}
+                onChange={handleChange}
+                className={styles.input}
+                readOnly
+              />
+            </div>
+          </>
+        )}
         <div className={styles.formGroup}>
           <button type="submit" className={styles.button}>Cadastrar</button>
         </div>

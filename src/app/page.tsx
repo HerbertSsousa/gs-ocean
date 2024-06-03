@@ -28,7 +28,7 @@ export default function Home() {
               </li>
 
               <li>
-                <a href="#" className="hover:text-blue-500">
+                <a href="/Doar" className="hover:text-blue-500">
                   Doar
                 </a>
               </li>
