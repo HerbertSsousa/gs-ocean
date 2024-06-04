@@ -34,7 +34,7 @@ const Cadastro = () => {
 
   const handleCEPBlur = async () => {
     try {
-      const response = await axios.get(`/cep/${formData.cep}`);
+      const response = await axios.get(`http://localhost:8083/cadastro/cep/${formData.cep}`);
       const { logradouro, bairro, localidade, uf } = response.data;
       setFormData({
         ...formData,
@@ -52,7 +52,7 @@ const Cadastro = () => {
   const handleUserIdBlur = async () => {
     if (!formData.userId) return;
     try {
-      const response = await axios.get(`/user/${formData.userId}`);
+      const response = await axios.get(`http://localhost:8083/cadastro/${formData.userId}`);
       const { name, email } = response.data;
       setFormData({
         ...formData,
@@ -70,7 +70,7 @@ const Cadastro = () => {
     console.log(formData);
 
     try {
-      const response = await axios.post('/cadastro', formData);
+      const response = await axios.post('http://localhost:8083/cadastro', formData);
       console.log('Cadastro realizado com sucesso:', response.data);
       setError('');
     } catch (error) {
