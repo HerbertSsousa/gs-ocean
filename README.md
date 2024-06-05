@@ -50,3 +50,6 @@ CleanOcean Solutions desenvolve tecnologias para reduzir a poluição marinha e 
 <li>Turma: 1TDSPT</li>
 
 </ul>
+
+<br>
+<p>Com base no nosso projeto adicionamos responsividade e arrumamos detalhes na página de cadastro e login, para que alinhe com o back-end <p/>
