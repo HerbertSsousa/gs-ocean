@@ -56,3 +56,6 @@ CleanOcean Solutions desenvolve tecnologias para reduzir a poluição marinha e 
 
 <br> <br>
 <p>Estruturando o projeto em componentes reaproveitaveis</p>
+
+
+<p>Tentamos deixar o site duma forma mais limpa e clara, direcionando todas as atenções para a nossa ideia de despoluição maritima</p>
