@@ -1,5 +1,6 @@
-import Image from 'next/image';
 import styles from "../pages/Produtos/Produto.module.css"
+
+import Image from 'next/image';
 
 
 
@@ -17,34 +18,34 @@ export default function Home() {
             <ul className="flex space-x-6 text-black-600">
               <li>
                 
-                <a href="/Produtos" className="hover:text-blue-500">
+                <a href="../Produtos" className="hover:text-blue-500">
                 Produtos
                 </a>
               </li>
               <li>
-                <a href="/trabalhos" className="hover:text-blue-500">
+                <a href="../trabalhos" className="hover:text-blue-500">
                 Trabalhos
                 </a>
               </li>
 
               <li>
-                <a href="/Doar" className="hover:text-blue-500">
+                <a href="../Doar" className="hover:text-blue-500">
                   Doar
                 </a>
               </li>
             
               <li>
-                <a href="/Cadastro" className="hover:text-blue-500">
+                <a href="../Cadastro" className="hover:text-blue-500">
                 Cadastro
                 </a>
               </li>
               <li>
-                <a href="/Login" className="hover:text-blue-500">
+                <a href="../Login" className="hover:text-blue-500">
                 Login
                 </a>
               </li>
               <li>
-                <a href="/Institucional" className="hover:text-blue-500">
+                <a href="../Institucional" className="hover:text-blue-500">
                   Institucional
                 </a>
               </li>
@@ -65,11 +66,11 @@ export default function Home() {
         CleanOcean Solutions é uma startup dedicada a desenvolver soluções inovadoras para reduzir a poluição marinha e preservar a saúde dos oceanos.
       </p>
       <p className="mt-4 text-lg text-gray-600">
-        Nosso primeiro projeto, o "CleanSea", é um sistema de coleta de resíduos marinhos baseado em tecnologia avançada, que visa mitigar os impactos negativos da poluição nos ecossistemas marinhos.
+        Nosso primeiro projeto, o CleanSea, é um sistema de coleta de resíduos marinhos baseado em tecnologia avançada, que visa mitigar os impactos negativos da poluição nos ecossistemas marinhos.
       </p>
     </div>
     <div className="w-1/2">
-      <img src="/logo.png"  alt="CleanOcean Logo" width={600} height={400} className="rounded-lg" />
+      <Image src="/logo.png"  alt="CleanOcean Logo" width={600} height={400} className="rounded-lg" />
     </div>
   </div>
 </section>
@@ -108,28 +109,28 @@ export default function Home() {
 <div className={styles.container}>
       
       <div className={styles.card}>
-        <img src='./bfi.png' alt="Barreira Flutuante Inteligente" className={styles.image} />
+        <Image src='/bfi.png' width={500} height={500} alt="Barreira Flutuante Inteligente" className={styles.image} />
         <h2 className={styles.title}>Barreira Flutuante Inteligente (BFI)</h2>
         <p className={styles.description}>
           Uma barreira flutuante equipada com sensores e inteligência artificial para detectar e coletar resíduos marinhos automaticamente. Além de recolher os resíduos, a BFI é capaz de separar e reciclar os materiais coletados, reduzindo ainda mais a poluição.
         </p>
       </div>
       <div className={styles.card}>
-        <img src='./Prod2.png' alt="Sistema de Filtragem Marinha Biomimético" className={styles.image} />
+        <Image src='/Prod2.png' width={500} height={500} alt="Sistema de Filtragem Marinha Biomimético" className={styles.image} />
         <h2 className={styles.title}>Sistema de Filtragem Marinha Biomimético</h2>
         <p className={styles.description}>
           Inspirado na natureza, esse sistema utiliza princípios biomiméticos para filtrar água do mar, removendo eficientemente microplásticos e outras partículas poluentes. Seu design inovador imita estruturas naturais, como corais e esponjas, para uma filtragem altamente eficaz.
         </p>
       </div>
       <div className={styles.card}>
-        <img src='./Prod3.png' alt="Rede de Pesca Sustentável com RFID" className={styles.image} />
+        <Image src='/Prod3.png' width={500} height={500} alt="Rede de Pesca Sustentável com RFID" className={styles.image} />
         <h2 className={styles.title}>Rede de Pesca Sustentável com RFID</h2>
         <p className={styles.description}>
           Uma rede de pesca sustentável equipada com tecnologia RFID (Identificação por Radiofrequência) para rastrear a atividade pesqueira e evitar a captura acidental de espécies protegidas e a perda de equipamentos. Além disso, a rede é fabricada com materiais biodegradáveis para minimizar seu impacto ambiental.
         </p>
       </div>
       <div className={styles.card}>
-        <img src='./Prod4.png' alt="Biópsias Robóticas para Limpeza de Recifes" className={styles.image} />
+        <Image src='/Prod4.png' width={500} height={500} alt="Biópsias Robóticas para Limpeza de Recifes" className={styles.image} />
         <h2 className={styles.title}>Biópsias Robóticas para Limpeza de Recifes</h2>
         <p className={styles.description}>
           Pequenos robôs autônomos projetados para realizar biópsias em recifes de corais, removendo algas invasoras e detritos que prejudicam o ecossistema marinho. Esses robôs utilizam algoritmos avançados para identificar e remover seletivamente os organismos indesejados, promovendo a saúde dos recifes.

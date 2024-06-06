@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import axios from 'axios';
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const { cep } = req.query;
 
   try {
@@ -11,3 +11,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     res.status(500).json({ message: 'Erro ao buscar informações do CEP', error: error });
   }
 };
+
+
+export default handler;

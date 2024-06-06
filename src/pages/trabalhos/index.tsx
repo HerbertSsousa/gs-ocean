@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './trabalhos.module.css';
+import Image from 'next/image';
 
 const Trabalhos: React.FC = () => {
   const trabalhosVoluntarios = [
@@ -39,7 +40,7 @@ const Trabalhos: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <img src='./logo.png' alt="Logo CleanOcean" className={styles.logo} />
+      <Image src='/logo.png' width={200} height={200} alt="Logo CleanOcean" className={styles.logo} />
       <h1>Trabalhos Voluntários da CleanOcean</h1>
       <div className={styles.trabalhosGrid}>
         {trabalhosVoluntarios.map((trabalho, index) => (
